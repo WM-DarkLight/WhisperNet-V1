@@ -1,0 +1,555 @@
+/* Side Story Display */
+.side-story-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px solid #30b55b;
+  box-shadow: 0 0 15px rgba(48, 181, 91, 0.5);
+  z-index: 1000;
+  color: #30b55b;
+  font-family: "Courier New", monospace;
+  animation: fadeIn 0.5s ease-out;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.side-story-content {
+  padding: 1.5rem;
+  position: relative;
+}
+
+.side-story-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #30b55b;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.side-story-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  flex-grow: 1;
+}
+
+.side-story-timestamp {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-left: 1rem;
+}
+
+.side-story-body {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.side-story-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  color: #30b55b;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.side-story-close-btn:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.side-story-dismiss-btn {
+  background-color: rgba(48, 181, 91, 0.2);
+  border: 1px solid #30b55b;
+  color: #30b55b;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: "Courier New", monospace;
+  display: block;
+  margin: 0 auto;
+  transition: all 0.2s ease;
+}
+
+.side-story-dismiss-btn:hover {
+  background-color: rgba(48, 181, 91, 0.4);
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Add a subtle pulse animation to draw attention to the dismiss button */
+.side-story-dismiss-btn {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(48, 181, 91, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(48, 181, 91, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(48, 181, 91, 0);
+  }
+}
+
+/* Make sure the story is visible on mobile devices */
+@media (max-width: 768px) {
+  .side-story-container {
+    width: 95%;
+    max-height: 70vh;
+  }
+
+  .side-story-header h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Encyclopedia Styles */
+.narrative-encyclopedia-button {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #444;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  z-index: 900;
+  font-family: "Courier New", monospace;
+  transition: background-color 0.2s;
+}
+
+.narrative-encyclopedia-button:hover {
+  background-color: rgba(20, 20, 20, 0.8);
+}
+
+.encyclopedia-count {
+  background-color: #555;
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+.narrative-encyclopedia {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  height: 80vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 1px solid #555;
+  border-radius: 4px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  font-family: "Courier New", monospace;
+  animation: encyclopediaAppear 0.3s ease-out;
+}
+
+.encyclopedia-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #444;
+}
+
+.encyclopedia-header h2 {
+  margin: 0;
+  color: #fff;
+}
+
+.encyclopedia-close {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.encyclopedia-close:hover {
+  color: #fff;
+}
+
+.encyclopedia-search {
+  padding: 10px 15px;
+  border-bottom: 1px solid #444;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.encyclopedia-search input {
+  flex: 1;
+  background-color: #222;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 8px;
+  border-radius: 3px;
+  font-family: "Courier New", monospace;
+}
+
+.encyclopedia-tabs {
+  display: flex;
+  border-bottom: 1px solid #444;
+}
+
+.encyclopedia-tab {
+  padding: 10px 15px;
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+}
+
+.encyclopedia-tab:hover {
+  background-color: #222;
+  color: #ddd;
+}
+
+.encyclopedia-tab.active {
+  background-color: #333;
+  color: #fff;
+  border-bottom: 2px solid #40a0ff;
+}
+
+.encyclopedia-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.encyclopedia-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.encyclopedia-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.encyclopedia-item:hover {
+  background-color: #222;
+}
+
+.item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #333;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.item-content {
+  flex: 1;
+}
+
+.item-title {
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.item-subtitle {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.item-status,
+.item-control,
+.item-impact,
+.item-date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* Status colors */
+.status-alive {
+  color: #40ff40;
+}
+.status-missing {
+  color: #ffa040;
+}
+.status-transferred {
+  color: #ff4040;
+}
+.status-deleted {
+  color: #888;
+}
+.status-unknown {
+  color: #a040ff;
+}
+
+.status-active {
+  color: #40ff40;
+}
+.status-abandoned {
+  color: #888;
+}
+.status-quarantined {
+  color: #ffa040;
+}
+.status-destroyed {
+  color: #ff4040;
+}
+
+.control-signal {
+  color: #ff4040;
+}
+.control-resistance {
+  color: #40a0ff;
+}
+.control-neutral {
+  color: #888;
+}
+.control-unknown {
+  color: #a040ff;
+}
+
+.impact-minor {
+  color: #40ff40;
+}
+.impact-moderate {
+  color: #ffa040;
+}
+.impact-major {
+  color: #ff4040;
+}
+.impact-catastrophic {
+  color: #ff00ff;
+}
+
+/* Detail view */
+.encyclopedia-detail {
+  padding: 10px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.back-button:hover {
+  color: #fff;
+}
+
+.character-header,
+.location-header,
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.character-header h3,
+.location-header h3,
+.event-header h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.character-role,
+.character-location,
+.character-sensitivity,
+.location-control,
+.location-coordinates,
+.event-impact {
+  margin-bottom: 10px;
+  color: #aaa;
+}
+
+.character-backstory,
+.location-description,
+.event-description {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: rgba(40, 40, 40, 0.5);
+  border-radius: 4px;
+  color: #ddd;
+  line-height: 1.5;
+}
+
+.character-connections h4,
+.location-events h4,
+.event-characters h4,
+.event-locations h4 {
+  color: #fff;
+  margin: 15px 0 10px;
+}
+
+.character-connections ul,
+.location-events ul,
+.event-characters ul,
+.event-locations ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.character-connections li,
+.location-events li,
+.event-characters li,
+.event-locations li {
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  background-color: rgba(40, 40, 40, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.character-connections li:hover,
+.location-events li:hover,
+.event-characters li:hover,
+.event-locations li:hover {
+  background-color: rgba(60, 60, 60, 0.5);
+}
+
+/* Timeline view */
+.timeline-container {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline-line {
+  position: absolute;
+  width: 4px;
+  background-color: #444;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+.timeline-marker {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #40a0ff;
+  top: 15px;
+  right: -8px;
+  z-index: 1;
+}
+
+.timeline-item.right .timeline-marker {
+  left: -8px;
+}
+
+.timeline-content {
+  padding: 10px;
+  background-color: rgba(40, 40, 40, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.timeline-content:hover {
+  background-color: rgba(60, 60, 60, 0.5);
+}
+
+.timeline-date {
+  color: #888;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+.timeline-title {
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.no-results {
+  color: #888;
+  text-align: center;
+  padding: 20px;
+}
+
+@keyframes encyclopediaAppear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}

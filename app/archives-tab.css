@@ -1,0 +1,127 @@
+/* Archives Tab Styles */
+.archives-tab {
+  width: 100%;
+  padding: 1rem;
+  color: #0f0;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid #0f0;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.archives-header {
+  margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+  padding-bottom: 1rem;
+}
+
+.archives-description {
+  color: #0f0;
+  opacity: 0.7;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.archives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.archive-item {
+  background-color: rgba(0, 20, 0, 0.5);
+  border: 1px solid rgba(0, 255, 0, 0.2);
+  padding: 1.5rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.archive-item:hover {
+  border-color: rgba(0, 255, 0, 0.6);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.archive-item.discovered {
+  border-color: rgba(0, 255, 0, 0.6);
+}
+
+.archive-item.locked {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.archive-item.locked:hover {
+  transform: none;
+  border-color: rgba(255, 0, 0, 0.4);
+}
+
+.archive-icon {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.archive-info {
+  text-align: center;
+}
+
+.archive-info h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.archive-info p {
+  color: #0f0;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.archive-status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(0, 255, 0, 0.1);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.archive-back-button {
+  background-color: rgba(0, 20, 0, 0.7);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  color: #0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.archive-back-button:hover {
+  background-color: rgba(0, 40, 0, 0.7);
+  border-color: rgba(0, 255, 0, 0.6);
+}
+
+.active-archive {
+  width: 100%;
+}
+
+/* Make the journal and encyclopedia fill the available space when in archives */
+.active-archive .narrative-journal,
+.active-archive .narrative-encyclopedia {
+  position: relative;
+  top: auto;
+  right: auto;
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  margin-top: 1rem;
+}

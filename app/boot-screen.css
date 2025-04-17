@@ -1,0 +1,410 @@
+/* Boot Screen Enhanced Styles */
+.boot-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.boot-content {
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+.boot-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.boot-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(26, 42, 58, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 42, 58, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards 1s;
+}
+
+.boot-scan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, transparent, rgba(70, 130, 180, 0.5), transparent);
+  opacity: 0;
+  animation: bootScan 3s ease-in-out infinite 2s;
+}
+
+.boot-flicker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(70, 130, 180, 0.05);
+  opacity: 0;
+  pointer-events: none;
+  animation: bootFlicker 0.2s ease-out infinite;
+}
+
+.terminal-icon {
+  color: var(--text-bright);
+  margin-bottom: 1rem;
+  animation: bootIconPulse 4s infinite;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: bootIconAppear 1s forwards;
+}
+
+.boot-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  color: var(--text-bright);
+  text-shadow: var(--glow-primary);
+  opacity: 0;
+  animation: bootTitleAppear 1.5s forwards 0.5s;
+}
+
+.boot-subtitle {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.2rem;
+  color: var(--text-dim);
+  opacity: 0;
+  animation: bootTitleAppear 1.5s forwards 1s;
+}
+
+.boot-progress-container {
+  width: 100%;
+  height: 20px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 1s forwards 1.5s;
+}
+
+.boot-progress-bar {
+  height: 100%;
+  background-color: var(--text-dim);
+  transition: width 0.3s ease;
+  box-shadow: var(--glow-primary);
+  position: relative;
+}
+
+.boot-progress-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(70, 130, 180, 0.5), transparent);
+  animation: progressGlow 2s ease-in-out infinite;
+}
+
+.boot-log {
+  text-align: left;
+  background-color: var(--bg-terminal);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  height: 200px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  opacity: 0;
+  animation: fadeIn 1s forwards 2s;
+  position: relative;
+}
+
+.boot-log p {
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: typeWriter 0.5s forwards;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.boot-log .system-check {
+  display: flex;
+  justify-content: space-between;
+}
+
+.boot-log .check-status {
+  font-weight: bold;
+}
+
+.boot-log .check-status.success {
+  color: var(--success-color);
+}
+
+.boot-log .check-status.warning {
+  color: var(--warning-color);
+}
+
+.boot-log .check-status.error {
+  color: var(--text-corrupted);
+}
+
+.boot-log .boot-error {
+  color: var(--text-corrupted);
+}
+
+.boot-log .boot-warning {
+  color: var(--warning-color);
+}
+
+.boot-log .boot-success {
+  color: var(--success-color);
+}
+
+.boot-memory-check {
+  display: flex;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-top: 1rem;
+  opacity: 0;
+  animation: fadeIn 1s forwards 3s;
+}
+
+.boot-memory-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  margin-top: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.boot-memory-progress {
+  height: 100%;
+  background-color: var(--text-dim);
+  width: 0%;
+  transition: width 2s ease;
+}
+
+.boot-version {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  opacity: 0;
+  animation: fadeIn 1s forwards 2.5s;
+}
+
+.boot-company {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  opacity: 0;
+  animation: fadeIn 1s forwards 2.5s;
+}
+
+/* Boot animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bootScan {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes bootFlicker {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  52% {
+    opacity: 0;
+  }
+  54% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes bootIconPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes bootIconAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes bootTitleAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes progressGlow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes typeWriter {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  99% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    width: auto;
+    white-space: normal;
+  }
+}
+
+@keyframes glitchText {
+  0% {
+    transform: translate(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-3px, 3px);
+    opacity: 0.9;
+  }
+  40% {
+    transform: translate(-3px, -3px);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(3px, 3px);
+    opacity: 0.9;
+  }
+  80% {
+    transform: translate(3px, -3px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+.glitch-text {
+  animation: glitchText 0.3s ease-in-out;
+}
+
+.boot-final-check {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeIn 1s forwards 4s;
+}
+
+.boot-check-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.boot-check-label {
+  color: var(--text-dim);
+}
+
+.boot-check-value {
+  color: var(--text-bright);
+}
+
+.boot-check-value.error {
+  color: var(--text-corrupted);
+}
+
+.boot-check-value.warning {
+  color: var(--warning-color);
+}
+
+.boot-check-value.success {
+  color: var(--success-color);
+}
+
+.boot-access-granted {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: var(--text-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  opacity: 0;
+  animation: fadeIn 1s forwards 5s, glitchText 0.3s ease-in-out 5.5s 3;
+}

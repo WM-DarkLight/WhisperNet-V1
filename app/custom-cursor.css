@@ -1,0 +1,49 @@
+/* Custom tech cursor styles */
+:root {
+  --cursor-color: rgba(70, 130, 180, 0.8);
+}
+
+/* Default cursor */
+* {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M8 2V14' stroke='%234682b4' stroke-width='1'/%3E%3Cpath d='M2 8H14' stroke='%234682b4' stroke-width='1'/%3E%3Ccircle cx='8' cy='8' r='3' stroke='%234682b4' stroke-width='1' fill='none'/%3E%3Ccircle cx='8' cy='8' r='1' fill='%234682b4'/%3E%3C/svg%3E")
+    8 8, auto;
+}
+
+/* Pointer cursor for clickable elements */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+label[for],
+select,
+.nav-link,
+.file-item,
+.folder-item,
+.ad-button,
+.reply-button,
+.submit-reply,
+.chat-send,
+.search-button {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M8 2V14' stroke='%234682b4' stroke-width='1'/%3E%3Cpath d='M2 8H14' stroke='%234682b4' stroke-width='1'/%3E%3Ccircle cx='8' cy='8' r='3' stroke='%234682b4' stroke-width='1' fill='rgba(70, 130, 180, 0.3)'/%3E%3Ccircle cx='8' cy='8' r='1' fill='%234682b4'/%3E%3C/svg%3E")
+    8 8, pointer;
+}
+
+/* Text cursor for text inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+[contenteditable="true"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M8 2V14' stroke='%234682b4' stroke-width='1'/%3E%3Cpath d='M4 8H12' stroke='%234682b4' stroke-width='1'/%3E%3C/svg%3E")
+    8 8, text;
+}
+
+/* Wait cursor */
+.loading,
+.refreshing,
+.boot-screen {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Ccircle cx='8' cy='8' r='5' stroke='%234682b4' stroke-width='1' stroke-dasharray='31.4 31.4' stroke-dashoffset='0'%3E%3CanimateTransform attributeName='transform' attributeType='XML' type='rotate' from='0 8 8' to='360 8 8' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='8' cy='8' r='1' fill='%234682b4'/%3E%3C/svg%3E")
+    8 8, wait;
+}

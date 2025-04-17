@@ -1,0 +1,177 @@
+/* Ensure the narrative ecosystem components have proper z-index */
+.narrative-ecosystem {
+  position: relative;
+  z-index: 900;
+}
+
+/* Ensure the journal is above other elements */
+.narrative-journal-button,
+.narrative-journal {
+  z-index: 1500;
+}
+
+/* Ensure the entity doesn't cover the journal */
+.entity-container {
+  z-index: 1000;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+.entity-container .entity {
+  pointer-events: auto; /* But make the entity itself clickable */
+}
+
+/* World State Indicators */
+.world-state-indicators {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #444;
+  padding: 8px;
+  border-radius: 4px;
+  z-index: 900;
+  width: 180px;
+  font-family: "Courier New", monospace;
+}
+
+.world-state-item {
+  margin-bottom: 6px;
+}
+
+.world-state-label {
+  display: block;
+  font-size: 0.7rem;
+  color: #aaa;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+
+.world-state-bar {
+  height: 6px;
+  background-color: #222;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.world-state-fill {
+  height: 100%;
+  transition: width 1s ease-in-out;
+}
+
+.world-state-fill.signal {
+  background-color: #ff4040;
+}
+
+.world-state-fill.resistance {
+  background-color: #40a0ff;
+}
+
+.world-state-fill.corruption {
+  background-color: #ffa040;
+}
+
+.world-state-fill.entity {
+  background-color: #a040ff;
+}
+
+/* Ambient Events */
+.ambient-event {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 1px solid;
+  padding: 12px;
+  border-radius: 4px;
+  z-index: 950;
+  font-family: "Courier New", monospace;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.ambient-event-broadcast {
+  border-color: #40a0ff;
+}
+
+.ambient-event-sighting {
+  border-color: #ffa040;
+}
+
+.ambient-event-glitch {
+  border-color: #ff4040;
+  animation: glitchBorder 0.2s infinite;
+}
+
+.ambient-event-system {
+  border-color: #40ff40;
+}
+
+.ambient-event-rumor {
+  border-color: #a040ff;
+}
+
+.ambient-event-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+}
+
+.ambient-event-header svg {
+  margin-right: 8px;
+}
+
+.ambient-event-type {
+  color: #fff;
+  font-weight: bold;
+  margin-right: auto;
+}
+
+.ambient-event-timestamp {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.ambient-event-content {
+  color: #ddd;
+  line-height: 1.4;
+}
+
+.ambient-event-source {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #888;
+  font-style: italic;
+}
+
+@keyframes glitchBorder {
+  0% {
+    border-color: #ff4040;
+  }
+  25% {
+    border-color: #40ff40;
+  }
+  50% {
+    border-color: #4040ff;
+  }
+  75% {
+    border-color: #ff40ff;
+  }
+  100% {
+    border-color: #ff4040;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
